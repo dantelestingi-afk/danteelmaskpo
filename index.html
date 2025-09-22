@@ -1,80 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blog sobre Andrés Iniesta</title>
   <style>
+    /* Tipografía y layout */
     body {
       font-family: "Times New Roman", serif;
       margin: 0;
       padding: 0;
+      background: #f5f7f9;
+      color: #222;
       line-height: 1.6;
-      background-color: #f9f9f9;
     }
 
+    /* Header */
     header {
-      background: #222;
+      background: #111;
       color: #fff;
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       text-align: center;
     }
 
+    /* Barra de navegación */
     nav {
-      background: #444;
+      background: #333;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
+      justify-content: center; /* alineación centrada */
+      gap: 18px;               /* espaciado entre links */
+      padding: 12px 10px;      /* padding de la barra */
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.3s;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.22s, transform 0.12s;
     }
-
     nav a:hover {
-      background: #666;
+      background: #4a4a4a;
+      transform: translateY(-1px);
     }
 
+    /* Contenedor principal */
     main {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 22px;
       background: #fff;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(10,10,10,0.06);
     }
 
-    section {
-      margin-bottom: 40px;
-      padding: 20px;
-      border-bottom: 1px solid #ccc;
+    /* Cada post */
+    section.post {
+      margin: 0 0 36px 0;   /* margen entre secciones */
+      padding: 18px;        /* padding interno */
+      border-radius: 8px;
+      background: #fcfcfc;
+      border: 1px solid #eee;
+    }
+    section.post + section.post {
+      margin-top: 22px;
     }
 
-    h1, h2 {
-      margin-bottom: 10px;
-    }
+    /* Encabezados y párrafos */
+    h1 { font-size: 2rem; margin: 0; }
+    h2 { font-size: 1.4rem; margin: 0 0 8px 0; }
+    p  { margin: 0 0 12px 0; text-align: justify; }
 
-    p {
-      text-align: justify;
-    }
-
-    img {
+    /* Imágenes adaptativas */
+    .post-img {
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 10px auto;
-      border-radius: 10px;
+      margin: 12px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
     }
 
+    /* Botones / links destacados */
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      background: #1e90ff;        /* color principal */
+      color: #fff;
+      transition: background 0.18s, transform 0.12s;
+      margin-top: 8px;
+    }
+    .btn:hover {
+      background: #166fcc; /* hover */
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 15px;
-      background: #222;
+      padding: 14px;
+      background: #111;
       color: #fff;
-      margin-top: 20px;
+      margin-top: 22px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav { gap: 10px; padding: 10px 6px; }
+      main { margin: 16px; padding: 16px; }
+      h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -89,39 +128,69 @@
   </nav>
 
   <main>
-    <section>
+    <section class="post" id="post1">
       <h2>Los inicios de Iniesta</h2>
-      <p>Andrés Iniesta nació en Fuentealbilla, España, y desde pequeño mostró un talento especial para el fútbol. Con apenas 12 años se unió a La Masía, la cantera del FC Barcelona.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Iniesta_2017.jpg" alt="Andrés Iniesta joven">
+      <p>Andrés Iniesta nació en Fuentealbilla y desde joven destacó por su visión y toque de balón. Ingresó en La Masía, donde se formó hasta debutar en el primer equipo del Barcelona.</p>
+      <img
+        class="post-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Iniesta_2017.jpg"
+        alt="Andrés Iniesta joven"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/900x500?text=Imagen+no+disponible';"
+      />
+      <a class="btn" href="#post1">Leer más</a>
     </section>
 
-    <section>
-      <h2>Su época dorada en el Barcelona</h2>
-      <p>Con el Barça ganó numerosos títulos, incluyendo Champions League y múltiples Ligas españolas. Fue parte fundamental del famoso equipo dirigido por Pep Guardiola.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Andr%C3%A9s_Iniesta_2018.jpg" alt="Iniesta en Barcelona">
+    <section class="post" id="post2">
+      <h2>Época dorada en el Barcelona</h2>
+      <p>Con el Barcelona alcanzó su madurez futbolística: múltiples Ligas y Champions, y formó parte de una de las mejores generaciones del club.</p>
+      <img
+        class="post-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/d/de/Andr%C3%A9s_Iniesta_2018.jpg"
+        alt="Iniesta en Barcelona"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/900x500?text=Imagen+no+disponible';"
+      />
+      <a class="btn" href="#post2">Leer más</a>
     </section>
 
-    <section>
+    <section class="post" id="post3">
       <h2>El gol que hizo historia</h2>
-      <p>En 2010, Iniesta marcó el gol de la victoria en la final del Mundial frente a Holanda, dando a España su primera Copa del Mundo. Ese momento lo convirtió en leyenda.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Andres_Iniesta_World_Cup_2010.jpg" alt="Gol de Iniesta en el Mundial">
+      <p>En la final del Mundial 2010 Iniesta marcó el gol decisivo frente a Holanda, que le dio a España su primera Copa del Mundo.</p>
+      <img
+        class="post-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/7/74/Andres_Iniesta_World_Cup_2010.jpg"
+        alt="Gol de Iniesta en el Mundial 2010"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/900x500?text=Imagen+no+disponible';"
+      />
+      <a class="btn" href="#post3">Leer más</a>
     </section>
 
-    <section>
+    <section class="post" id="post4">
       <h2>Su etapa en Japón</h2>
-      <p>Tras dejar el Barcelona, Iniesta continuó su carrera en el Vissel Kobe de Japón, donde siguió demostrando su calidad y liderando dentro y fuera del campo.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Iniesta_Vissel.jpg" alt="Iniesta en Japón">
+      <p>Más tarde Iniesta continuó su carrera en Vissel Kobe, aportando liderazgo y experiencia tanto dentro como fuera de la cancha.</p>
+      <img
+        class="post-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Iniesta_Vissel.jpg"
+        alt="Iniesta en Vissel Kobe"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/900x500?text=Imagen+no+disponible';"
+      />
+      <a class="btn" href="#post4">Leer más</a>
     </section>
 
-    <section>
+    <section class="post" id="post5">
       <h2>Legado e influencia</h2>
-      <p>Andrés Iniesta es considerado uno de los mejores centrocampistas de la historia. Su humildad, talento y visión de juego inspiraron a generaciones enteras de futbolistas.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Iniesta_training.jpg" alt="Iniesta entrenando">
+      <p>Iniesta es considerado uno de los mejores centrocampistas de la historia: su humildad y su lectura del juego lo convirtieron en ejemplo para jóvenes futbolistas.</p>
+      <img
+        class="post-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/8/82/Iniesta_training.jpg"
+        alt="Iniesta entrenando"
+        onerror="this.onerror=null;this.src='https://via.placeholder.com/900x500?text=Imagen+no+disponible';"
+      />
+      <a class="btn" href="#post5">Leer más</a>
     </section>
   </main>
 
   <footer>
-    <p>Blog sobre Andrés Iniesta - Creado para práctica HTML & CSS</p>
+    <p>Blog sobre Andrés Iniesta - Creado para práctica HTML &amp; CSS</p>
   </footer>
 </body>
 </html>
